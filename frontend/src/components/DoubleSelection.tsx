@@ -49,9 +49,9 @@ export default function DoubleSelection(props : DataOutput) {
                     onIonChange={handleChange}
                 >
                     <IonSelectOption value="10">10</IonSelectOption>
-                    <IonSelectOption value="20">25</IonSelectOption>
+                    <IonSelectOption value="25">25</IonSelectOption>
                     <IonSelectOption value="50">50</IonSelectOption>
-                    <IonSelectOption value="70">75</IonSelectOption>
+                    <IonSelectOption value="75">75</IonSelectOption>
                     <IonSelectOption value="100">100</IonSelectOption>
                 </IonSelect>
             </IonItem>

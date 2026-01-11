@@ -20,7 +20,7 @@ export default function SingleSelection() {
                     onIonChange={handleChange}
                     >
                     <IonSelectOption value="phonk">Phonk</IonSelectOption>
-                    <IonSelectOption value="Musica EDM | electronica">Electrónica</IonSelectOption>
+                    <IonSelectOption value="Música EDM | electronica">Electrónica</IonSelectOption>
                     <IonSelectOption value="Música techno">Techno</IonSelectOption>
                     <IonSelectOption value="Regueton | Música latina">Reguetón</IonSelectOption>
                     <IonSelectOption value="Música Pop">Pop</IonSelectOption>
