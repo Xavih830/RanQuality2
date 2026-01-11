@@ -16,7 +16,7 @@ firebase_admin.initialize_app(cred)
 def setData(categoria, limite, fecha):
     ref = db.reference(f'{categoria}/{limite}/{fecha}')
     
-    url = f'http://localhost:5000/api/search?query=${categoria}&limit=${limite}&date=${fecha}'
+    url = f'https://Xavih830.pythonanywhere.com/api/search?query=${categoria}&limit=${limite}&date=${fecha}'
     response = []
     status = 404
 
