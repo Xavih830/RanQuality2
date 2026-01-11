@@ -1,15 +1,14 @@
 import os
 import json
-from dotenv import load_dotenv
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import db
 import requests
 
-load_dotenv()
-llave_json = os.getenv('FIREBASE_KEY')
-dict_json = json.loads(llave_json)
-cred = credentials.Certificate(dict_json)
+ruta_main = os.path.dirname(os.path.abspath(__file__))
+ruta_json = os.path.join(ruta_main, 'secrets', 'ranquality.json')
+
+cred = credentials.Certificate(ruta_json)
 
 firebase_admin.initialize_app(cred)
 
@@ -25,7 +24,6 @@ def setData(categoria, limite, fecha):
         status = response.status_code
 
     ref.set(response)
-
 
 def readData(categoria, limite, fecha):
     ref = db.reference(f'{categoria}/{limite}/{fecha}')

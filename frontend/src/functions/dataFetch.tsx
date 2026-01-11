@@ -22,7 +22,7 @@ export default function dataFetch( datos : Data) : DataFetchOutput{
 
         const obtenerDatos = async () => {
             try {
-                const response = await fetch(`http://localhost:5000/api/search?query=${datos.busqueda}&limit=${datos.limite}&date=${datos.fecha}`);
+                const response = await fetch(`https://Xavih830.pythonanywhere.com/api/search?query=${datos.busqueda}&limit=${datos.limite}&date=${datos.fecha}`);
 
                 if (!response.ok) {
                     throw new Error(`Error HTTP: ${response.status} - ${response.statusText}`);
