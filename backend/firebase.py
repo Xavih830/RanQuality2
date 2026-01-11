@@ -3,12 +3,12 @@ import json
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import db
+import json
 import requests
 
-ruta_main = os.path.dirname(os.path.abspath(__file__))
-ruta_json = os.path.join(ruta_main, 'secrets', 'ranquality.json')
-
-cred = credentials.Certificate(ruta_json)
+firebase_key = os.environ.get('FIREBASE_CONFIG')
+json_load = json.loads(firebase_key)
+cred = credentials.Certificate(json_load)
 
 firebase_admin.initialize_app(cred)
 
