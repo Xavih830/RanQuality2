@@ -42,7 +42,7 @@ def search():
     # videosValidos = []
 
     for srch in searching:
-        videosTop.append(srch['videoId'])
+        videosTop.append(scrapetube.get_video(srch['videoId']))
         # videoId = srch['videoId']
         # video = scrapetube.get_video(videoId)
         # titulo = video['title']['runs'][0]['text']
