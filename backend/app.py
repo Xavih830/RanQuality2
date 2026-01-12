@@ -35,38 +35,39 @@ def search():
 
     videosTop = []
 
-    dateSince = calcOperDias(diasDic[fecha])
-    dateSince = tradDiasFecha(dateSince, fecha)
+    # dateSince = calcOperDias(diasDic[fecha])
+    # dateSince = tradDiasFecha(dateSince, fecha)
 
-    fechasValidas = listaVideos(diasDic[fecha], fecha)
-    videosValidos = []
+    # fechasValidas = listaVideos(diasDic[fecha], fecha)
+    # videosValidos = []
 
     for srch in searching:
-        videoId = srch['videoId']
-        video = scrapetube.get_video(videoId)
-        titulo = video['title']['runs'][0]['text']
-        fechaEval = video['dateText']['simpleText']
+        videosTop.append(srch)
+        # videoId = srch['videoId']
+        # video = scrapetube.get_video(videoId)
+        # titulo = video['title']['runs'][0]['text']
+        # fechaEval = video['dateText']['simpleText']
         
-        try:
-            duracionVideo = srch['lengthText']['simpleText']
-        except:
-            duracionVideo = '0:00'
+        # try:
+        #     duracionVideo = srch['lengthText']['simpleText']
+        # except:
+        #     duracionVideo = '0:00'
         
-        duracion = duracionSegundos(duracionVideo)
-        url = f'https://www.youtube.com/watch?v={videoId}'
-        miniatura = f'https://i.ytimg.com/vi/{videoId}/maxresdefault.jpg'
+        # duracion = duracionSegundos(duracionVideo)
+        # url = f'https://www.youtube.com/watch?v={videoId}'
+        # miniatura = f'https://i.ytimg.com/vi/{videoId}/maxresdefault.jpg'
 
-        #Filtro de busqueda para videos mayores a 1 minuto (evitando Shorts)
-        # y para videos menores a 8 minutos, para evitar videos de mayor duracion (recopliaciones de canciones)
-        if (duracion > 61 and duracion < 480) and (fechaEval in fechasValidas) and (titulo not in videosValidos):
-            videosValidos.append(titulo) 
-            videosTop.append({
-                "duration": duracionVideo, 
-                "date": fechaEval, 
-                "title": titulo, 
-                "url": url, 
-                "image": miniatura
-            })
+        # #Filtro de busqueda para videos mayores a 1 minuto (evitando Shorts)
+        # # y para videos menores a 8 minutos, para evitar videos de mayor duracion (recopliaciones de canciones)
+        # if (duracion > 61 and duracion < 480) and (fechaEval in fechasValidas) and (titulo not in videosValidos):
+        #     videosValidos.append(titulo) 
+        #     videosTop.append({
+        #         "duration": duracionVideo, 
+        #         "date": fechaEval, 
+        #         "title": titulo, 
+        #         "url": url, 
+        #         "image": miniatura
+        #     })
 
     return jsonify(videosTop)
 
