@@ -31,7 +31,7 @@ def search():
     if (fecha == '6_meses' or fecha == '1_año'):
         searchWay = 'relevance'
 
-    searching = scrapetube.get_search(query, num, sort_by = searchWay)
+    searching = scrapetube.get_search(query, 1, sort_by = searchWay)
 
     videosTop = []
 
@@ -57,7 +57,7 @@ def search():
         miniatura = f'https://i.ytimg.com/vi/{videoId}/maxresdefault.jpg'
 
         #Filtro de busqueda para videos mayores a 1 minuto (evitando Shorts)
-        # y para videos menores a 8 minutos y medio, para evitar videos de mayor duracion (recopliaciones de canciones)
+        # y para videos menores a 8 minutos, para evitar videos de mayor duracion (recopliaciones de canciones)
         if (duracion > 61 and duracion < 480) and (fechaEval in fechasValidas) and (titulo not in videosValidos):
             videosValidos.append(titulo) 
             videosTop.append({
@@ -68,7 +68,7 @@ def search():
                 "image": miniatura
             })
 
-    return videosTop
+    return jsonify(videosTop)
 
 @app.route('/api/read')
 def read():
