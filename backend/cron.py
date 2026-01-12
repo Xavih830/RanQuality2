@@ -1,3 +1,4 @@
+#Usado en pythonanywhere, no aqui
 import time
 from firebase import setData
 
